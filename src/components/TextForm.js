@@ -3,14 +3,16 @@ export default function TextForm(props) {
     const handlUpClick = () =>{
         let newText = text.toUpperCase();
         setText(newText)
-    };
-    const handlLowClick = () =>{
+        props.showAlert("Converted to Upper Case", "success");
+      };
+      const handlLowClick = () =>{
         let newText = text.toLowerCase();
         setText(newText)
-    };
-    const handleCopyClick = () =>{
-      navigator.clipboard.writeText(text);
-      alert( text + ' Copied!')
+        props.showAlert("Converted to Lower Case", "success");
+      };
+      const handleCopyClick = () =>{
+        navigator.clipboard.writeText(text);
+        props.showAlert("Copied", "success");
     };
     const handleOnChange = (event) =>{
         setText(event.target.value);
